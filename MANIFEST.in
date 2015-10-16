@@ -1,0 +1,5 @@
+include setup.py
+include requirements.txt
+include README.md
+recursive-include python_hiveish *.md
+recursive-include python_hiveish *.py

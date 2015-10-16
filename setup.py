@@ -23,25 +23,22 @@ THE SOFTWARE.
 """
 
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 from pip.req import parse_requirements
+from pip.download import PipSession
 
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
-
-reqs = [str(ir.req) for ir in parse_requirements("requirements.txt", session=False)]
+install_reqs = parse_requirements("requirements.txt", session=PipSession())
+reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
-    name = "python-hiveish",
-    version = "1.0.0",
+    name = "python_hiveish",
+    version = "1.0.9",
+    packages=find_packages(),
     author = "Tommy Carpenter",
     author_email = "tommyjcarpenter@gmail.com, tommy@research.att.com",
     description = ("A hive-like interface wrapper around Hadoopy that allows SQL like queries ontop of MapReduce directly from Python"),
     license = "MIT",
     keywords = "python, hadoop, mapreduce",
     url = "https://github.com/tommyjcarpenter/python-hiveish",
-    packages=[],
-    long_description=read('README.md'),
-    classifiers=[],
     install_requires=reqs
 )
