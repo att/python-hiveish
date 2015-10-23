@@ -32,7 +32,7 @@ reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
     name = "python_hiveish",
-    version = "1.0.9",
+    version = "1.0.10",
     packages=find_packages(),
     author = "Tommy Carpenter",
     author_email = "tommyjcarpenter@gmail.com, tommy@research.att.com",
