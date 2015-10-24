@@ -47,16 +47,23 @@ def tb_topn_dict(path, limit=None, pprint = False):
             break
     return top_dict    
          
-def read_hdfs_as_generator(path): 
+def read_hdfs_as_generator(path, read_all_at_once = False): 
     """Reads a path at HDFS and returns it line by line as a generator
        
        Args:
            path (strng): HDFS path
+           read_all_at_once
         
         Returns: strings (lines of the file) 
     """
-    for i in hadoopy.readtb(path):
-        yield i     
+    if read_all_at_once:
+        lines = [i for i in hadoopy.readtb(path)]
+        for i in lines:
+            yield i
+            
+    else:        
+        for i in hadoopy.readtb(path):
+            yield i     
         
 def count_hdfs_lines(path):
     """Simply counts the lines at the HDFS path
