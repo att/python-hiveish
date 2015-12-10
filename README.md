@@ -1,11 +1,7 @@
 # python-hiveish
-Contains various tools for running scripts on Hadoop using Map Reduce. This is a wrapper around Hadoopy.  
-
-Overview
-=======
-This library contains (or will contain):
+This library contains Python APIs to execute SQL like queries in Python, which are automatically translated into MapReduce jobs on your Hadoop cluster.   These APIs are high level wrappers around Hadoopy.  Specifically, it contains:
 <ul>
-<li>Pre-built MapReduce jobs with a SQL like interface. This is similar to Impala/Hive but written completely in Python. These are simply wrappers around MapReduces `jobconfs`
+<li>Pre-built MapReduce jobs with a SQL like interface. Internally, these are simply wrappers around MapReduces `jobconfs`
 <li>"Plug n play" mappers and reducers that can be composed into new map reduce jobs. 
 <li>Some basic functions to read and write HDFS files </li> 
 </ul>
